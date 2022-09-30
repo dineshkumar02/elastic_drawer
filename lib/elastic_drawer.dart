@@ -1,10 +1,10 @@
-library elastic_drawer;
+
 
 import 'package:flutter/material.dart';
 
-const borderWidth = 20.0;
-const lineWidth = 10.0;
-const touchWidth = 20.0;
+const borderWidth = 25.0;
+const lineWidth = 0.0;
+const touchWidth = 60.0;
 const touchRadius = 40.0;
 
 class ElasticDrawerKey {
@@ -107,8 +107,11 @@ class _ElasticDrawerState extends State<ElasticDrawer>
     final size = MediaQuery.of(context).size;
     final markPosition = touchRadius +
         widget.markPosition.clamp(0, 1) * (size.height - 2 * touchRadius);
+    setState(() {
+     _slideOn = true; 
+    });
+     
     _touchPosition = Offset(0.0, markPosition);
-
     _animationController.forward();
   }
 
