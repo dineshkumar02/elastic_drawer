@@ -104,11 +104,11 @@ class _ElasticDrawerState extends State<ElasticDrawer>
   }
 
   openElasticDrawer(BuildContext context) {
-    _animation(context);
-  }
+    final size = MediaQuery.of(context).size;
+    final markPosition = touchRadius +
+        widget.markPosition.clamp(0, 1) * (size.height - 2 * touchRadius);
+    _touchPosition = Offset(0.0, markPosition);
 
-  openElasticDrawer2(BuildContext context) {
-    //_touchPosition = Offset(0.0, markPosition);
     _animationController.forward();
   }
 
